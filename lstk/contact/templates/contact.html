@@ -1,0 +1,43 @@
+{% extends 'main/general.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Наши контакты{% endblock  %}
+
+{% block  body %}
+{% load static %}
+
+    <div class="col-12 col-lg-19 m-0 mb-0 p-0 photoPostCard">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-0">
+                <div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: auto;">
+                    <div class="col-sm-6 col-lg-4 mb-4" style="margin:17px auto 7px;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <h1 class="col-12">Наши контакты:</h1>
+                                <p class="card-text">Адрес: 344000, Россия, г. Ростов-на-Дону, ул. Пятилетки, д. 1.</p>
+                                <p class="card-text">Приёмная: +7 900 900 90 90</p>
+                                <p class="card-text">Время работы: пн.-пт. 08:00 – 17:00</p>
+                                <div class="container">
+                                    <form method="post">
+                                        <h1 class="col-12">Заказать услугу</h1>
+                                        {% csrf_token %}
+							            {{ form|crispy }}
+							            {# {% for f in form %} #}
+                                        {#<p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f|crispy }}</p>#}
+							            {# <div class="form-error">{{ f.errors }}</div> #}
+							            {# {% endfor %} #}
+                                        <br>
+                                        <button class="w-100 btn btn-lg btn-primary" type="submit" onclick="clicks();">отправить</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
